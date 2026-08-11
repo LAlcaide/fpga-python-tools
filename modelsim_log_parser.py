@@ -24,5 +24,24 @@ with open(args.logfile, "r") as file:
 
 print("Contents of the log file:\n")
 
+passed = 0
+failed = 0
+
 for line in lines:
-    print(line.strip())
+    line = line.strip()
+
+    if "PASS" in line:
+        passed += 1
+
+    elif "FAIL" in line:
+        failed += 1
+
+print("ModelSim Log Summary")
+
+print(f"Passed Tests : {passed}")
+print(f"Failed Tests : {failed}")
+print(f"Total Tests  : {passed + failed}")
+
+if passed + failed > 0:
+    success_rate = passed / (passed + failed) * 100
+    print(f"Success Rate : {success_rate:.2f}%")
