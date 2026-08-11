@@ -1,0 +1,4 @@
+# PASS Reset Test
+# PASS UART TX
+# FAIL Bit 5
+# PASS Stop Bit
